@@ -7,162 +7,204 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		573C504614EC8D8C0029A677 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 573C504514EC8D8C0029A677 /* Cocoa.framework */; };
-		573C505014EC8D8C0029A677 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 573C504E14EC8D8C0029A677 /* InfoPlist.strings */; };
-		573C505214EC8D8C0029A677 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 573C505114EC8D8C0029A677 /* main.m */; };
-		573C505614EC8D8C0029A677 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 573C505414EC8D8C0029A677 /* Credits.rtf */; };
-		573C505914EC8D8C0029A677 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 573C505814EC8D8C0029A677 /* AppDelegate.m */; };
-		573C505C14EC8D8D0029A677 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 573C505A14EC8D8D0029A677 /* MainMenu.xib */; };
-		573C506414EC8D8D0029A677 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 573C506314EC8D8D0029A677 /* SenTestingKit.framework */; };
-		573C506514EC8D8D0029A677 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 573C504514EC8D8C0029A677 /* Cocoa.framework */; };
-		573C506D14EC8D8D0029A677 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 573C506B14EC8D8D0029A677 /* InfoPlist.strings */; };
-		573C507014EC8D8D0029A677 /* ProxyAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 573C506F14EC8D8D0029A677 /* ProxyAppTests.m */; };
+		57127CD514DA60BC00D2E891 /* launchAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57127CD414DA60BC00D2E891 /* launchAtLoginController.m */; };
+		57460F5414E24BC30085BBAC /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57460F5314E24BC30085BBAC /* Sparkle.framework */; };
+		57460F5514E24BCE0085BBAC /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 57460F5314E24BC30085BBAC /* Sparkle.framework */; };
+		57514F5514EAEFEC00B74FC7 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57514F5414EAEFEC00B74FC7 /* Growl.framework */; };
+		57514F5714EAF07800B74FC7 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 57514F5414EAEFEC00B74FC7 /* Growl.framework */; };
+		57514F5B14EAF0ED00B74FC7 /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = 57514F5A14EAF0ED00B74FC7 /* Growl Registration Ticket.growlRegDict */; };
+		579161A314D13EE900786962 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 579161A214D13EE900786962 /* Cocoa.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		579161AD14D13EE900786962 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 579161AB14D13EE900786962 /* InfoPlist.strings */; };
+		579161AF14D13EE900786962 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 579161AE14D13EE900786962 /* main.m */; };
+		579161B314D13EE900786962 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 579161B114D13EE900786962 /* Credits.rtf */; };
+		579161B614D13EE900786962 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 579161B514D13EE900786962 /* AppDelegate.m */; };
+		579161B914D13EEA00786962 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 579161B714D13EEA00786962 /* MainMenu.xib */; };
+		57C855ED14D62BA1009D0B98 /* off.png in Resources */ = {isa = PBXBuildFile; fileRef = 57C855EA14D62BA1009D0B98 /* off.png */; };
+		57C855EE14D62BA1009D0B98 /* on.png in Resources */ = {isa = PBXBuildFile; fileRef = 57C855EB14D62BA1009D0B98 /* on.png */; };
+		57C855EF14D62BA1009D0B98 /* starting.png in Resources */ = {isa = PBXBuildFile; fileRef = 57C855EC14D62BA1009D0B98 /* starting.png */; };
+		57C855FC14D652EA009D0B98 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 57C855FB14D652EA009D0B98 /* icon.icns */; };
+		57E0847314D5DB320098391D /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E0847214D5DB320098391D /* AppController.m */; };
+		57E0847614D5DB590098391D /* PrefController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E0847514D5DB590098391D /* PrefController.m */; };
+		57E0847814D5DB6D0098391D /* prefs.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57E0847714D5DB6D0098391D /* prefs.xib */; };
+		57E0849414D61A0C0098391D /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 57E0849314D61A0C0098391D /* dsa_pub.pem */; };
+		57FAA30F14D8F26800B776F1 /* ssh_password_login in Resources */ = {isa = PBXBuildFile; fileRef = 57FAA30E14D8F26800B776F1 /* ssh_password_login */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		573C506614EC8D8D0029A677 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 573C503814EC8D8C0029A677 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 573C504014EC8D8C0029A677;
-			remoteInfo = ProxyApp;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXFileReference section */
-		573C504114EC8D8C0029A677 /* ProxyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProxyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		573C504514EC8D8C0029A677 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		573C504814EC8D8C0029A677 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		573C504914EC8D8C0029A677 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		573C504A14EC8D8C0029A677 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		573C504D14EC8D8C0029A677 /* ProxyApp-Info.plist */ = {isa = PBXFileReference; path = "ProxyApp-Info.plist"; sourceTree = "<group>"; };
-		573C504F14EC8D8C0029A677 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		573C505114EC8D8C0029A677 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		573C505314EC8D8C0029A677 /* ProxyApp-Prefix.pch */ = {isa = PBXFileReference; path = "ProxyApp-Prefix.pch"; sourceTree = "<group>"; };
-		573C505514EC8D8C0029A677 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		573C505714EC8D8C0029A677 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
-		573C505814EC8D8C0029A677 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		573C505B14EC8D8D0029A677 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		573C506214EC8D8D0029A677 /* ProxyAppTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProxyAppTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		573C506314EC8D8D0029A677 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		573C506A14EC8D8D0029A677 /* ProxyAppTests-Info.plist */ = {isa = PBXFileReference; path = "ProxyAppTests-Info.plist"; sourceTree = "<group>"; };
-		573C506C14EC8D8D0029A677 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		573C506E14EC8D8D0029A677 /* ProxyAppTests.h */ = {isa = PBXFileReference; path = ProxyAppTests.h; sourceTree = "<group>"; };
-		573C506F14EC8D8D0029A677 /* ProxyAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProxyAppTests.m; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		573C503E14EC8D8C0029A677 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
+/* Begin PBXCopyFilesBuildPhase section */
+		57E0849114D60E140098391D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
 			files = (
-				573C504614EC8D8C0029A677 /* Cocoa.framework in Frameworks */,
+				57460F5514E24BCE0085BBAC /* Sparkle.framework in CopyFiles */,
+				57514F5714EAF07800B74FC7 /* Growl.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		573C505E14EC8D8D0029A677 /* Frameworks */ = {
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		57127CD314DA60BC00D2E891 /* launchAtLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = launchAtLoginController.h; sourceTree = "<group>"; };
+		57127CD414DA60BC00D2E891 /* launchAtLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = launchAtLoginController.m; sourceTree = "<group>"; };
+		57460F5314E24BC30085BBAC /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		57514F5414EAEFEC00B74FC7 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
+		57514F5A14EAF0ED00B74FC7 /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
+		5791619E14D13EE900786962 /* ProxyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProxyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		579161A214D13EE900786962 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		579161A514D13EE900786962 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		579161A614D13EE900786962 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		579161A714D13EE900786962 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		579161AA14D13EE900786962 /* ProxyApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ProxyApp-Info.plist"; sourceTree = "<group>"; };
+		579161AC14D13EE900786962 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		579161AE14D13EE900786962 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		579161B014D13EE900786962 /* ProxyApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ProxyApp-Prefix.pch"; sourceTree = "<group>"; };
+		579161B214D13EE900786962 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		579161B414D13EE900786962 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		579161B514D13EE900786962 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		579161B814D13EEA00786962 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		579161C014D13EEA00786962 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		57C855EA14D62BA1009D0B98 /* off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = off.png; sourceTree = "<group>"; };
+		57C855EB14D62BA1009D0B98 /* on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = on.png; sourceTree = "<group>"; };
+		57C855EC14D62BA1009D0B98 /* starting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starting.png; sourceTree = "<group>"; };
+		57C855FB14D652EA009D0B98 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
+		57E0847114D5DB320098391D /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
+		57E0847214D5DB320098391D /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
+		57E0847414D5DB590098391D /* PrefController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefController.h; sourceTree = "<group>"; };
+		57E0847514D5DB590098391D /* PrefController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrefController.m; sourceTree = "<group>"; };
+		57E0847714D5DB6D0098391D /* prefs.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = prefs.xib; sourceTree = "<group>"; };
+		57E0849314D61A0C0098391D /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
+		57FAA30E14D8F26800B776F1 /* ssh_password_login */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ssh_password_login; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5791619B14D13EE900786962 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				573C506414EC8D8D0029A677 /* SenTestingKit.framework in Frameworks */,
-				573C506514EC8D8D0029A677 /* Cocoa.framework in Frameworks */,
+				579161A314D13EE900786962 /* Cocoa.framework in Frameworks */,
+				57460F5414E24BC30085BBAC /* Sparkle.framework in Frameworks */,
+				57514F5514EAEFEC00B74FC7 /* Growl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		573C503614EC8D8C0029A677 = {
+		57127CD714DA60C400D2E891 /* Auto Launch */ = {
 			isa = PBXGroup;
 			children = (
-				573C504B14EC8D8C0029A677 /* ProxyApp */,
-				573C506814EC8D8D0029A677 /* ProxyAppTests */,
-				573C504414EC8D8C0029A677 /* Frameworks */,
-				573C504214EC8D8C0029A677 /* Products */,
+				57127CD314DA60BC00D2E891 /* launchAtLoginController.h */,
+				57127CD414DA60BC00D2E891 /* launchAtLoginController.m */,
+			);
+			name = "Auto Launch";
+			path = ProxyApp;
+			sourceTree = "<group>";
+		};
+		5791619314D13EE900786962 = {
+			isa = PBXGroup;
+			children = (
+				57127CD714DA60C400D2E891 /* Auto Launch */,
+				57E0847E14D5F6D80098391D /* Prefs */,
+				579161A814D13EE900786962 /* ProxyApp */,
+				57E0848A14D607AA0098391D /* Resources */,
+				579161A114D13EE900786962 /* Frameworks */,
+				5791619F14D13EE900786962 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		573C504214EC8D8C0029A677 /* Products */ = {
+		5791619F14D13EE900786962 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				573C504114EC8D8C0029A677 /* ProxyApp.app */,
-				573C506214EC8D8D0029A677 /* ProxyAppTests.octest */,
+				5791619E14D13EE900786962 /* ProxyApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		573C504414EC8D8C0029A677 /* Frameworks */ = {
+		579161A114D13EE900786962 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				573C504514EC8D8C0029A677 /* Cocoa.framework */,
-				573C506314EC8D8D0029A677 /* SenTestingKit.framework */,
-				573C504714EC8D8C0029A677 /* Other Frameworks */,
+				57514F5414EAEFEC00B74FC7 /* Growl.framework */,
+				57460F5314E24BC30085BBAC /* Sparkle.framework */,
+				579161A214D13EE900786962 /* Cocoa.framework */,
+				579161C014D13EEA00786962 /* SenTestingKit.framework */,
+				579161A414D13EE900786962 /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		573C504714EC8D8C0029A677 /* Other Frameworks */ = {
+		579161A414D13EE900786962 /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				573C504814EC8D8C0029A677 /* AppKit.framework */,
-				573C504914EC8D8C0029A677 /* CoreData.framework */,
-				573C504A14EC8D8C0029A677 /* Foundation.framework */,
+				579161A514D13EE900786962 /* AppKit.framework */,
+				579161A614D13EE900786962 /* CoreData.framework */,
+				579161A714D13EE900786962 /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		573C504B14EC8D8C0029A677 /* ProxyApp */ = {
+		579161A814D13EE900786962 /* ProxyApp */ = {
 			isa = PBXGroup;
 			children = (
-				573C505714EC8D8C0029A677 /* AppDelegate.h */,
-				573C505814EC8D8C0029A677 /* AppDelegate.m */,
-				573C505A14EC8D8D0029A677 /* MainMenu.xib */,
-				573C504C14EC8D8C0029A677 /* Supporting Files */,
+				579161B414D13EE900786962 /* AppDelegate.h */,
+				579161B514D13EE900786962 /* AppDelegate.m */,
+				579161B714D13EEA00786962 /* MainMenu.xib */,
+				57E0847714D5DB6D0098391D /* prefs.xib */,
+				579161A914D13EE900786962 /* Supporting Files */,
 			);
+			name = ProxyApp;
 			path = ProxyApp;
 			sourceTree = "<group>";
 		};
-		573C504C14EC8D8C0029A677 /* Supporting Files */ = {
+		579161A914D13EE900786962 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				573C504D14EC8D8C0029A677 /* ProxyApp-Info.plist */,
-				573C504E14EC8D8C0029A677 /* InfoPlist.strings */,
-				573C505114EC8D8C0029A677 /* main.m */,
-				573C505314EC8D8C0029A677 /* ProxyApp-Prefix.pch */,
-				573C505414EC8D8C0029A677 /* Credits.rtf */,
+				579161AA14D13EE900786962 /* ProxyApp-Info.plist */,
+				579161AB14D13EE900786962 /* InfoPlist.strings */,
+				579161AE14D13EE900786962 /* main.m */,
+				579161B014D13EE900786962 /* ProxyApp-Prefix.pch */,
+				579161B114D13EE900786962 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		573C506814EC8D8D0029A677 /* ProxyAppTests */ = {
+		57E0847E14D5F6D80098391D /* Prefs */ = {
 			isa = PBXGroup;
 			children = (
-				573C506E14EC8D8D0029A677 /* ProxyAppTests.h */,
-				573C506F14EC8D8D0029A677 /* ProxyAppTests.m */,
-				573C506914EC8D8D0029A677 /* Supporting Files */,
+				57E0847114D5DB320098391D /* AppController.h */,
+				57E0847214D5DB320098391D /* AppController.m */,
+				57E0847414D5DB590098391D /* PrefController.h */,
+				57E0847514D5DB590098391D /* PrefController.m */,
 			);
-			path = ProxyAppTests;
+			name = Prefs;
+			path = ProxyApp;
 			sourceTree = "<group>";
 		};
-		573C506914EC8D8D0029A677 /* Supporting Files */ = {
+		57E0848A14D607AA0098391D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				573C506A14EC8D8D0029A677 /* ProxyAppTests-Info.plist */,
-				573C506B14EC8D8D0029A677 /* InfoPlist.strings */,
+				57FAA30E14D8F26800B776F1 /* ssh_password_login */,
+				57C855FB14D652EA009D0B98 /* icon.icns */,
+				57C855EA14D62BA1009D0B98 /* off.png */,
+				57C855EB14D62BA1009D0B98 /* on.png */,
+				57C855EC14D62BA1009D0B98 /* starting.png */,
+				57E0849314D61A0C0098391D /* dsa_pub.pem */,
+				57514F5A14EAF0ED00B74FC7 /* Growl Registration Ticket.growlRegDict */,
 			);
-			name = "Supporting Files";
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		573C504014EC8D8C0029A677 /* ProxyApp */ = {
+		5791619D14D13EE900786962 /* ProxyApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 573C507314EC8D8D0029A677 /* Build configuration list for PBXNativeTarget "ProxyApp" */;
+			buildConfigurationList = 579161D014D13EEA00786962 /* Build configuration list for PBXNativeTarget "ProxyApp" */;
 			buildPhases = (
-				573C503D14EC8D8C0029A677 /* Sources */,
-				573C503E14EC8D8C0029A677 /* Frameworks */,
-				573C503F14EC8D8C0029A677 /* Resources */,
+				5791619A14D13EE900786962 /* Sources */,
+				5791619B14D13EE900786962 /* Frameworks */,
+				5791619C14D13EE900786962 /* Resources */,
+				57E0849114D60E140098391D /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -170,156 +212,100 @@
 			);
 			name = ProxyApp;
 			productName = ProxyApp;
-			productReference = 573C504114EC8D8C0029A677 /* ProxyApp.app */;
+			productReference = 5791619E14D13EE900786962 /* ProxyApp.app */;
 			productType = "com.apple.product-type.application";
-		};
-		573C506114EC8D8D0029A677 /* ProxyAppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 573C507614EC8D8D0029A677 /* Build configuration list for PBXNativeTarget "ProxyAppTests" */;
-			buildPhases = (
-				573C505D14EC8D8D0029A677 /* Sources */,
-				573C505E14EC8D8D0029A677 /* Frameworks */,
-				573C505F14EC8D8D0029A677 /* Resources */,
-				573C506014EC8D8D0029A677 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				573C506714EC8D8D0029A677 /* PBXTargetDependency */,
-			);
-			name = ProxyAppTests;
-			productName = ProxyAppTests;
-			productReference = 573C506214EC8D8D0029A677 /* ProxyAppTests.octest */;
-			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		573C503814EC8D8C0029A677 /* Project object */ = {
+		5791619514D13EE900786962 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0420;
 			};
-			buildConfigurationList = 573C503B14EC8D8C0029A677 /* Build configuration list for PBXProject "ProxyApp" */;
+			buildConfigurationList = 5791619814D13EE900786962 /* Build configuration list for PBXProject "ProxyApp" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				English,
 			);
-			mainGroup = 573C503614EC8D8C0029A677;
-			productRefGroup = 573C504214EC8D8C0029A677 /* Products */;
+			mainGroup = 5791619314D13EE900786962;
+			productRefGroup = 5791619F14D13EE900786962 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				573C504014EC8D8C0029A677 /* ProxyApp */,
-				573C506114EC8D8D0029A677 /* ProxyAppTests */,
+				5791619D14D13EE900786962 /* ProxyApp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		573C503F14EC8D8C0029A677 /* Resources */ = {
+		5791619C14D13EE900786962 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				573C505014EC8D8C0029A677 /* InfoPlist.strings in Resources */,
-				573C505614EC8D8C0029A677 /* Credits.rtf in Resources */,
-				573C505C14EC8D8D0029A677 /* MainMenu.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		573C505F14EC8D8D0029A677 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				573C506D14EC8D8D0029A677 /* InfoPlist.strings in Resources */,
+				579161AD14D13EE900786962 /* InfoPlist.strings in Resources */,
+				579161B314D13EE900786962 /* Credits.rtf in Resources */,
+				579161B914D13EEA00786962 /* MainMenu.xib in Resources */,
+				57E0847814D5DB6D0098391D /* prefs.xib in Resources */,
+				57E0849414D61A0C0098391D /* dsa_pub.pem in Resources */,
+				57C855ED14D62BA1009D0B98 /* off.png in Resources */,
+				57C855EE14D62BA1009D0B98 /* on.png in Resources */,
+				57C855EF14D62BA1009D0B98 /* starting.png in Resources */,
+				57C855FC14D652EA009D0B98 /* icon.icns in Resources */,
+				57FAA30F14D8F26800B776F1 /* ssh_password_login in Resources */,
+				57514F5B14EAF0ED00B74FC7 /* Growl Registration Ticket.growlRegDict in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		573C506014EC8D8D0029A677 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		573C503D14EC8D8C0029A677 /* Sources */ = {
+		5791619A14D13EE900786962 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				573C505214EC8D8C0029A677 /* main.m in Sources */,
-				573C505914EC8D8C0029A677 /* AppDelegate.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		573C505D14EC8D8D0029A677 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				573C507014EC8D8D0029A677 /* ProxyAppTests.m in Sources */,
+				579161AF14D13EE900786962 /* main.m in Sources */,
+				579161B614D13EE900786962 /* AppDelegate.m in Sources */,
+				57E0847314D5DB320098391D /* AppController.m in Sources */,
+				57E0847614D5DB590098391D /* PrefController.m in Sources */,
+				57127CD514DA60BC00D2E891 /* launchAtLoginController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		573C506714EC8D8D0029A677 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 573C504014EC8D8C0029A677 /* ProxyApp */;
-			targetProxy = 573C506614EC8D8D0029A677 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
-		573C504E14EC8D8C0029A677 /* InfoPlist.strings */ = {
+		579161AB14D13EE900786962 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				573C504F14EC8D8C0029A677 /* en */,
+				579161AC14D13EE900786962 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		573C505414EC8D8C0029A677 /* Credits.rtf */ = {
+		579161B114D13EE900786962 /* Credits.rtf */ = {
 			isa = PBXVariantGroup;
 			children = (
-				573C505514EC8D8C0029A677 /* en */,
+				579161B214D13EE900786962 /* en */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
 		};
-		573C505A14EC8D8D0029A677 /* MainMenu.xib */ = {
+		579161B714D13EEA00786962 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				573C505B14EC8D8D0029A677 /* en */,
+				579161B814D13EEA00786962 /* en */,
 			);
 			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-		573C506B14EC8D8D0029A677 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				573C506C14EC8D8D0029A677 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		573C507114EC8D8D0029A677 /* Debug */ = {
+		579161CE14D13EEA00786962 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -328,6 +314,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -345,7 +332,7 @@
 			};
 			name = Debug;
 		};
-		573C507214EC8D8D0029A677 /* Release */ = {
+		579161CF14D13EEA00786962 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -354,6 +341,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
@@ -364,85 +352,58 @@
 			};
 			name = Release;
 		};
-		573C507414EC8D8D0029A677 /* Debug */ = {
+		579161D114D13EEA00786962 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ProxyApp/ProxyApp-Prefix.pch";
 				INFOPLIST_FILE = "ProxyApp/ProxyApp-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ProxyApp;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
-		573C507514EC8D8D0029A677 /* Release */ = {
+		579161D214D13EEA00786962 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ProxyApp/ProxyApp-Prefix.pch";
 				INFOPLIST_FILE = "ProxyApp/ProxyApp-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ProxyApp;
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		573C507714EC8D8D0029A677 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ProxyApp.app/Contents/MacOS/ProxyApp";
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ProxyApp/ProxyApp-Prefix.pch";
-				INFOPLIST_FILE = "ProxyAppTests/ProxyAppTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		573C507814EC8D8D0029A677 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ProxyApp.app/Contents/MacOS/ProxyApp";
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ProxyApp/ProxyApp-Prefix.pch";
-				INFOPLIST_FILE = "ProxyAppTests/ProxyAppTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		573C503B14EC8D8C0029A677 /* Build configuration list for PBXProject "ProxyApp" */ = {
+		5791619814D13EE900786962 /* Build configuration list for PBXProject "ProxyApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				573C507114EC8D8D0029A677 /* Debug */,
-				573C507214EC8D8D0029A677 /* Release */,
+				579161CE14D13EEA00786962 /* Debug */,
+				579161CF14D13EEA00786962 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		573C507314EC8D8D0029A677 /* Build configuration list for PBXNativeTarget "ProxyApp" */ = {
+		579161D014D13EEA00786962 /* Build configuration list for PBXNativeTarget "ProxyApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				573C507414EC8D8D0029A677 /* Debug */,
-				573C507514EC8D8D0029A677 /* Release */,
+				579161D114D13EEA00786962 /* Debug */,
+				579161D214D13EEA00786962 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		573C507614EC8D8D0029A677 /* Build configuration list for PBXNativeTarget "ProxyAppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				573C507714EC8D8D0029A677 /* Debug */,
-				573C507814EC8D8D0029A677 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 573C503814EC8D8C0029A677 /* Project object */;
+	rootObject = 5791619514D13EE900786962 /* Project object */;
 }
