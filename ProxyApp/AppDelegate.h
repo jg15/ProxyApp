@@ -23,7 +23,9 @@
 	NSImage *statusImageChange;
 	NSTask *_ssh;
 	NSPipe *sshOutput;
+	NSPipe *sshError;
 	NSFileHandle *_fileHandle;
+	NSFileHandle *_fileHandleError;
 	NSUserDefaults *standardUserDefaults;
 	NSString *server;
 	NSString *username;
@@ -39,7 +41,7 @@
     //NSImage *statusHighlightImage;
 }
 
-//-(void)menuDidClose:(NSMenu *)theMenu;
+-(void)proxyToggle;
 
 @property (assign) IBOutlet NSWindow *prefWindow;
 @property (retain) PrefController *prefController;

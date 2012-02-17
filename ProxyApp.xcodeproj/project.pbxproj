@@ -152,7 +152,6 @@
 				57E0847714D5DB6D0098391D /* prefs.xib */,
 				579161A914D13EE900786962 /* Supporting Files */,
 			);
-			name = ProxyApp;
 			path = ProxyApp;
 			sourceTree = "<group>";
 		};
