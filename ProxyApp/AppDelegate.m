@@ -70,7 +70,9 @@ BOOL proxyResume = YES;
 	
 	//if([text hasSuffix:@"Connected"]){} //For later use...
 	
+	//if(text!=@"")
 	[self growl:@"Message:":text];
+	NSLog(@"%@",text);
 	//NSLog(@"%@",sshError);
 	
     //[text release];
