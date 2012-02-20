@@ -68,9 +68,8 @@ BOOL proxyResume = YES;
     data = [[notification userInfo] objectForKey:NSFileHandleNotificationDataItem]; 
     text = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
 	
-	//if([text hasSuffix:@"Connected"]){} //For later use...
+	if([text isLike:@"CONNECTED"]){[statusItem setImage:statusImageOn];}
 	
-	//if(text!=@"")
 	[self growl:@"Message:":text];
 	NSLog(@"%@",text);
 	//NSLog(@"%@",sshError);
@@ -83,7 +82,7 @@ BOOL proxyResume = YES;
 
 -(void)sshDone: (NSNotification *)notification{
 	//NSLog(@"Status: %i",[[notification object] terminationStatus]);
-	[self proxyToggle];
+	[self proxyToggleOff];
 }
 
 -(void)menuWillOpen:(NSMenu *)theMenu{
@@ -113,6 +112,59 @@ BOOL proxyResume = YES;
 	[self proxyToggle];
 }
 
+-(void)proxyToggleOn{
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(readSshOutput:) name:NSFileHandleReadCompletionNotification object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sshDone:) name:NSTaskDidTerminateNotification object:nil];
+	//[statusItem setTitle:@"Starting..."];
+	[statusItem setImage:statusImageChange];
+	system("networksetup -setsocksfirewallproxystate Wi-Fi on");
+	_ssh = [NSTask new];
+	sshOutput = [NSPipe pipe];
+	sshError = [NSPipe pipe];
+	_fileHandle = [sshOutput fileHandleForReading];
+	[_fileHandle readInBackgroundAndNotify];
+	_fileHandleError = [sshError fileHandleForReading];
+	[_fileHandleError readInBackgroundAndNotify];
+	[_ssh setStandardOutput: sshOutput];
+	[_ssh setStandardError: sshError];
+	[_ssh setStandardInput:[NSFileHandle fileHandleWithNullDevice]];
+	
+	/*if([password isEqualToString:@""]){
+	 preargs = [NSString stringWithFormat:@"%@@%@",username,server];
+	 args = [NSArray arrayWithObjects:@"-NTp",port,preargs,@"-D",@"7070",@"-o",@"KeepAlive yes",@"-o",arg,@"-o",arg2,nil];
+	 [_ssh setLaunchPath:@"/usr/bin/ssh"];
+	 }else{*/
+	if([password isEqualToString:@""])password=NULL;
+	args = [NSArray arrayWithObjects:port,server,username,arg,arg2,password,nil];
+	[_ssh setLaunchPath:[NSBundle pathForResource:@"ssh_connect" ofType:@"" inDirectory:[[NSBundle mainBundle] bundlePath]]];
+	//}
+	
+	NSLog(@"Starting Proxy");
+	[_ssh setArguments:args];
+	[_ssh launch];
+	system("networksetup -setsocksfirewallproxy Wi-Fi 127.0.0.1 7070 off");
+	//[statusItem setImage:statusImageChange];
+	//[statusItem setTitle:@"On"];
+	//[statusItem setImage:statusImageOn];
+	proxyIsOn=YES;
+}
+
+-(void)proxyToggleOff{
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+	//[statusItem setTitle:@"Stopping..."];
+	[statusItem setImage:statusImageChange];
+	[_ssh terminate];
+	[_ssh release];
+	system("networksetup -setsocksfirewallproxy Wi-Fi '' '' off");
+	system("networksetup -setsocksfirewallproxystate Wi-Fi off");
+	[statusItem setImage:statusImageOff];
+	//[statusItem setTitle:@""];
+	//[statusItem setTitle:@"Off"];
+	proxyIsOn=NO;
+	[self growl:@"Message:":@"DISCONNECTED"];
+	NSLog(@"Stopping Proxy");
+}
+
 -(void)proxyToggle{	
 	if(statusMenuOn){
 		standardUserDefaults = [NSUserDefaults standardUserDefaults];
@@ -129,55 +181,9 @@ BOOL proxyResume = YES;
 		}	
 		if(server&&username){
 			if(proxyIsOn){
-				[[NSNotificationCenter defaultCenter] removeObserver:self];
-				//[statusItem setTitle:@"Stopping..."];
-				[statusItem setImage:statusImageChange];
-				[_ssh terminate];
-				[_ssh release];
-				system("networksetup -setsocksfirewallproxy Wi-Fi '' '' off");
-				system("networksetup -setsocksfirewallproxystate Wi-Fi off");
-				[statusItem setImage:statusImageOff];
-				//[statusItem setTitle:@""];
-				//[statusItem setTitle:@"Off"];
-				proxyIsOn=NO;
-				NSLog(@"Stopping Proxy");
+				[self proxyToggleOff];
 			}else{
-				[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(readSshOutput:) name:NSFileHandleReadCompletionNotification object:nil];
-				[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sshDone:) name:NSTaskDidTerminateNotification object:nil];
-				//[statusItem setTitle:@"Starting..."];
-				[statusItem setImage:statusImageChange];
-				system("networksetup -setsocksfirewallproxystate Wi-Fi on");
-				_ssh = [NSTask new];
-				sshOutput = [NSPipe pipe];
-				sshError = [NSPipe pipe];
-				_fileHandle = [sshOutput fileHandleForReading];
-				[_fileHandle readInBackgroundAndNotify];
-				_fileHandleError = [sshError fileHandleForReading];
-				[_fileHandleError readInBackgroundAndNotify];
-				[_ssh setStandardOutput: sshOutput];
-				[_ssh setStandardError: sshError];
-				[_ssh setStandardInput:[NSFileHandle fileHandleWithNullDevice]];
-			
-				/*if([password isEqualToString:@""]){
-					preargs = [NSString stringWithFormat:@"%@@%@",username,server];
-					args = [NSArray arrayWithObjects:@"-NTp",port,preargs,@"-D",@"7070",@"-o",@"KeepAlive yes",@"-o",arg,@"-o",arg2,nil];
-					[_ssh setLaunchPath:@"/usr/bin/ssh"];
-				}else{*/
-					if([password isEqualToString:@""])password=NULL;
-					args = [NSArray arrayWithObjects:port,server,username,arg,arg2,password,nil];
-					[_ssh setLaunchPath:[NSBundle pathForResource:@"ssh_password_login" ofType:@"" inDirectory:[[NSBundle mainBundle] bundlePath]]];
-				//}
-			
-				NSLog(@"Starting Proxy");
-				[_ssh setArguments:args];
-				[_ssh launch];
-				system("networksetup -setsocksfirewallproxy Wi-Fi 127.0.0.1 7070 off");
-				//[statusItem setImage:statusImageChange];
-				//[statusItem setTitle:@""];
-				//[statusItem setTitle:@"On"];
-				[statusItem setImage:statusImageOn];
-				proxyIsOn=YES;
-				//[self growl:@"Hjjjjj":@"NOM"];
+				[self proxyToggleOn];
 			}
 		}
     }
@@ -186,22 +192,22 @@ BOOL proxyResume = YES;
 -(void)receiveSleepNote:(NSNotification*)note{
 	NSLog(@"receiveSleepNote: %@", [note name]);
 	if(proxyIsOn){
-		[self menuDidClose:statusMenu];
+		[self proxyToggleOff];
 		proxyWasOn=YES;
 	}
 }
 
 -(void)receiveWakeNote:(NSNotification*)note{
 	NSLog(@"receiveSleepNote: %@", [note name]);
-	if(proxyWasOn&&proxyResume){
+	if(proxyWasOn){
 		if(proxyIsOn){
-			[_ssh terminate];
-			[_ssh release];
+			[self proxyToggleOff];
 		}
-		sleep(5);
-		[self menuDidClose:statusMenu];
-		
-		proxyWasOn=NO;
+		if(proxyResume){
+			sleep(5);
+			[self proxyToggleOn];
+			proxyWasOn=NO;
+		}
 	}
 }
 

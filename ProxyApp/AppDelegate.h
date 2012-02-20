@@ -41,7 +41,10 @@
     //NSImage *statusHighlightImage;
 }
 
+-(void)growl:(NSString *)title:(NSString *)msg;
 -(void)proxyToggle;
+-(void)proxyToggleOn;
+-(void)proxyToggleOff;
 
 @property (assign) IBOutlet NSWindow *prefWindow;
 @property (retain) PrefController *prefController;

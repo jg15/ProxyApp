@@ -13,6 +13,7 @@
 		57514F5514EAEFEC00B74FC7 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57514F5414EAEFEC00B74FC7 /* Growl.framework */; };
 		57514F5714EAF07800B74FC7 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 57514F5414EAEFEC00B74FC7 /* Growl.framework */; };
 		57514F5B14EAF0ED00B74FC7 /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = 57514F5A14EAF0ED00B74FC7 /* Growl Registration Ticket.growlRegDict */; };
+		5771E11314F1CA6500F1E472 /* ssh_connect in Resources */ = {isa = PBXBuildFile; fileRef = 5771E11214F1CA6500F1E472 /* ssh_connect */; };
 		579161A314D13EE900786962 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 579161A214D13EE900786962 /* Cocoa.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		579161AD14D13EE900786962 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 579161AB14D13EE900786962 /* InfoPlist.strings */; };
 		579161AF14D13EE900786962 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 579161AE14D13EE900786962 /* main.m */; };
@@ -27,7 +28,6 @@
 		57E0847614D5DB590098391D /* PrefController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E0847514D5DB590098391D /* PrefController.m */; };
 		57E0847814D5DB6D0098391D /* prefs.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57E0847714D5DB6D0098391D /* prefs.xib */; };
 		57E0849414D61A0C0098391D /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 57E0849314D61A0C0098391D /* dsa_pub.pem */; };
-		57FAA30F14D8F26800B776F1 /* ssh_password_login in Resources */ = {isa = PBXBuildFile; fileRef = 57FAA30E14D8F26800B776F1 /* ssh_password_login */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -50,6 +50,7 @@
 		57460F5314E24BC30085BBAC /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		57514F5414EAEFEC00B74FC7 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
 		57514F5A14EAF0ED00B74FC7 /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
+		5771E11214F1CA6500F1E472 /* ssh_connect */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ssh_connect; sourceTree = "<group>"; };
 		5791619E14D13EE900786962 /* ProxyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProxyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		579161A214D13EE900786962 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		579161A514D13EE900786962 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -74,7 +75,6 @@
 		57E0847514D5DB590098391D /* PrefController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrefController.m; sourceTree = "<group>"; };
 		57E0847714D5DB6D0098391D /* prefs.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = prefs.xib; sourceTree = "<group>"; };
 		57E0849314D61A0C0098391D /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
-		57FAA30E14D8F26800B776F1 /* ssh_password_login */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ssh_password_login; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,8 +182,8 @@
 		57E0848A14D607AA0098391D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				57FAA30E14D8F26800B776F1 /* ssh_password_login */,
 				57C855FB14D652EA009D0B98 /* icon.icns */,
+				5771E11214F1CA6500F1E472 /* ssh_connect */,
 				57C855EA14D62BA1009D0B98 /* off.png */,
 				57C855EB14D62BA1009D0B98 /* on.png */,
 				57C855EC14D62BA1009D0B98 /* starting.png */,
@@ -254,8 +254,8 @@
 				57C855EE14D62BA1009D0B98 /* on.png in Resources */,
 				57C855EF14D62BA1009D0B98 /* starting.png in Resources */,
 				57C855FC14D652EA009D0B98 /* icon.icns in Resources */,
-				57FAA30F14D8F26800B776F1 /* ssh_password_login in Resources */,
 				57514F5B14EAF0ED00B74FC7 /* Growl Registration Ticket.growlRegDict in Resources */,
+				5771E11314F1CA6500F1E472 /* ssh_connect in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
