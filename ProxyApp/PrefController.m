@@ -10,6 +10,7 @@
 
 BOOL ChangedSHK=NO;
 BOOL ChangedAPR=NO;
+BOOL ChangedGrowl=NO;
 
 @implementation PrefController
 
@@ -33,6 +34,7 @@ BOOL ChangedAPR=NO;
 	standardUserDefaults = [NSUserDefaults standardUserDefaults];
 	if(!ChangedSHK){strictHostKeyOn = [standardUserDefaults objectForKey:@"strictHostKey"];}
 	if(!ChangedAPR){autoProxyResumeOn = [standardUserDefaults objectForKey:@"autoProxyResume"];}
+	if(!ChangedGrowl){growlOn = [standardUserDefaults objectForKey:@"growl"];}
 	if (standardUserDefaults) {
 		[standardUserDefaults setObject:[server stringValue] forKey:@"server"];
 		[standardUserDefaults setObject:[username stringValue] forKey:@"username"];
@@ -40,9 +42,11 @@ BOOL ChangedAPR=NO;
 		[standardUserDefaults setObject:[port stringValue] forKey:@"port"];
 		[standardUserDefaults setObject:strictHostKeyOn forKey:@"strictHostKey"];
 		[standardUserDefaults setObject:autoProxyResumeOn forKey:@"autoProxyResume"];
+		[standardUserDefaults setObject:growlOn forKey:@"growl"];
 		[standardUserDefaults synchronize];
 		ChangedSHK=NO;
 		ChangedAPR=NO;
+		ChangedGrowl=NO;
 	}
 }
 
@@ -56,4 +60,8 @@ BOOL ChangedAPR=NO;
 	ChangedAPR=YES;
 }
 
+-(IBAction)growl:(id)sender{
+	if([growl state]==NSOnState){growlOn=@"On";}else{growlOn=@"Off";}
+	ChangedGrowl=YES;
+}
 @end

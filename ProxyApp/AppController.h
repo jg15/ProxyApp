@@ -16,10 +16,12 @@
 	IBOutlet NSTextField *portField;
 	IBOutlet NSButton *strictHostKeyCheckingToggle;
 	IBOutlet NSButton *autoProxyResumeToggle;
+	IBOutlet NSButton *growlToggle;
 	
 	id ToFill;
 	int tempValSHK;
 	int tempValAPR;
+	int tempGrowl;
 	
 	NSUserDefaults *standardUserDefaults;
 	NSString *server;
@@ -28,6 +30,7 @@
 	NSString *port;
 	NSString *strictHostKey;
 	NSString *autoProxyResume;
+	NSString *growl;
 	
 	NSObject *toFill;
 	

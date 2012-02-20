@@ -27,11 +27,16 @@ BOOL proxyResume = YES;
 }
 
 -(void)growl:(NSString *)title:(NSString *)msg{
-	NSString *name = @"Message";
-	[GrowlApplicationBridge notifyWithTitle:title description:msg notificationName:name iconData:nil priority:0 isSticky:NO clickContext:nil];
-	[msg release];
-	[name release];
-	[title release];
+	standardUserDefaults = [NSUserDefaults standardUserDefaults];
+	if (standardUserDefaults){
+		if([[standardUserDefaults objectForKey:@"growl"] isEqualToString:@"On"]){
+			NSString *name = @"Message";
+			[GrowlApplicationBridge notifyWithTitle:title description:msg notificationName:name iconData:nil priority:0 isSticky:NO clickContext:nil];
+			[msg release];
+			[name release];
+			[title release];
+		}
+	}
 }
 
 - (void)awakeFromNib{
@@ -204,8 +209,7 @@ BOOL proxyResume = YES;
 			[self proxyToggleOff];
 		}
 		if(proxyResume){
-			sleep(5);
-			[self proxyToggleOn];
+			[self performSelector:@selector(proxyToggleOn) withObject:nil afterDelay:5.0];
 			proxyWasOn=NO;
 		}
 	}

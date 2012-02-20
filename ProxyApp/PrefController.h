@@ -15,13 +15,16 @@
     IBOutlet id password;
     IBOutlet id port;
 	IBOutlet id autoProxyResume;
+	IBOutlet id growl;
 	NSString *strictHostKeyOn;
 	NSString *autoProxyResumeOn;
+	NSString *growlOn;
 	NSUserDefaults *standardUserDefaults;
 }
 
 -(IBAction)save:(id)sender;
 -(IBAction)strictHostKey:(id)sender;
 -(IBAction)autoProxyResume:(id)sender;
+-(IBAction)growl:(id)sender;
 
 @end

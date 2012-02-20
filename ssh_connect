@@ -13,7 +13,7 @@ spawn ssh -NTp $port $user@$server -D 7070 -o "KeepAlive yes" -o "$arg" -o "$arg
 
 match_max 100000
 
-set timeout 3
+set timeout 5
 expect {
 "?sh: Error*" {puts "CONNECTION ERROR"; exit};
 "*yes/no*" {send "yes\r"; exp_continue};

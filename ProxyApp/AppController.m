@@ -54,8 +54,10 @@
 		port = [standardUserDefaults objectForKey:@"port"];
 		strictHostKey = [standardUserDefaults objectForKey:@"strictHostKey"];
 		autoProxyResume = [standardUserDefaults objectForKey:@"autoProxyResume"];
+		growl = [standardUserDefaults objectForKey:@"growl"];
 		if([strictHostKey isEqualToString:@"On"]){tempValSHK=1;}else{tempValSHK=0;}
 		if([autoProxyResume isEqualToString:@"On"]){tempValAPR=1;}else{tempValAPR=0;}
+		if([growl isEqualToString:@"On"]){tempGrowl=1;}else{tempGrowl=0;}
 
 		[serverField setStringValue:server];
 		[usernameField setStringValue:username];
@@ -63,6 +65,7 @@
 		[portField setStringValue:port];
 		[strictHostKeyCheckingToggle setIntValue:tempValSHK];
 		[autoProxyResumeToggle setIntValue:tempValAPR];
+		[growlToggle setIntValue:tempGrowl];
 		
 		return self;
 	}
