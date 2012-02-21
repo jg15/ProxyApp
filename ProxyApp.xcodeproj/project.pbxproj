@@ -14,6 +14,7 @@
 		57514F5714EAF07800B74FC7 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 57514F5414EAEFEC00B74FC7 /* Growl.framework */; };
 		57514F5B14EAF0ED00B74FC7 /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = 57514F5A14EAF0ED00B74FC7 /* Growl Registration Ticket.growlRegDict */; };
 		5771E11314F1CA6500F1E472 /* ssh_connect in Resources */ = {isa = PBXBuildFile; fileRef = 5771E11214F1CA6500F1E472 /* ssh_connect */; };
+		5787D43D14F2DDFA00DE2CF3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5787D43C14F2DDF900DE2CF3 /* QuartzCore.framework */; };
 		579161A314D13EE900786962 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 579161A214D13EE900786962 /* Cocoa.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		579161AD14D13EE900786962 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 579161AB14D13EE900786962 /* InfoPlist.strings */; };
 		579161AF14D13EE900786962 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 579161AE14D13EE900786962 /* main.m */; };
@@ -51,6 +52,7 @@
 		57514F5414EAEFEC00B74FC7 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
 		57514F5A14EAF0ED00B74FC7 /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
 		5771E11214F1CA6500F1E472 /* ssh_connect */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ssh_connect; sourceTree = "<group>"; };
+		5787D43C14F2DDF900DE2CF3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5791619E14D13EE900786962 /* ProxyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProxyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		579161A214D13EE900786962 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		579161A514D13EE900786962 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -82,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5787D43D14F2DDFA00DE2CF3 /* QuartzCore.framework in Frameworks */,
 				579161A314D13EE900786962 /* Cocoa.framework in Frameworks */,
 				57460F5414E24BC30085BBAC /* Sparkle.framework in Frameworks */,
 				57514F5514EAEFEC00B74FC7 /* Growl.framework in Frameworks */,
@@ -124,6 +127,7 @@
 		579161A114D13EE900786962 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5787D43C14F2DDF900DE2CF3 /* QuartzCore.framework */,
 				57514F5414EAEFEC00B74FC7 /* Growl.framework */,
 				57460F5314E24BC30085BBAC /* Sparkle.framework */,
 				579161A214D13EE900786962 /* Cocoa.framework */,

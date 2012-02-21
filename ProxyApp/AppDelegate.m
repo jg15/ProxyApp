@@ -50,11 +50,7 @@ BOOL proxyResume = YES;
 	[statusImageOn setTemplate:YES];
 	[statusImageOff setTemplate:YES];
 	[statusImageChange setTemplate:YES];
-    //statusHighlightImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"ForwardArrowIcon2" ofType:@"png"]];
     [statusItem setImage:statusImageOff];
-    //[statusItem setAlternateImage:statusHighlightImage];
-    
-    //[statusItem setTitle:@"Off"];
     [statusItem setMenu:statusMenu];
     [statusItem setToolTip:@"Proxy App"];
     [statusItem setHighlightMode:YES];

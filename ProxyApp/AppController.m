@@ -37,6 +37,7 @@
     options = [NSDictionary dictionaryWithObjectsAndKeys:@"",@"Version",@"Proxy App", @"ApplicationName",img,@"ApplicationIcon",@"Copyright 2012, Joshua Girard", @"Copyright",@"Proxy App", @"ApplicationVersion",nil];
 	
     [[NSApplication sharedApplication] orderFrontStandardAboutPanelWithOptions:options];
+	[[NSApplication sharedApplication] arrangeInFront:nil];
 }
 
 - (IBAction)quit:(id)sender {

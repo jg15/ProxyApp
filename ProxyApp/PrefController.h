@@ -6,9 +6,11 @@
 //  Copyright (c) 2012 Joshua Girard. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import <Cocoa/Cocoa.h>
 
-@interface PrefController : NSWindowController <NSWindowDelegate> {
+@interface PrefController : NSWindowController <NSWindowDelegate, NSObject> {
+	IBOutlet NSWindow *prefWindow;
 	IBOutlet id strictHostKey;
 	IBOutlet id server;
     IBOutlet id username;
@@ -20,6 +22,7 @@
 	NSString *autoProxyResumeOn;
 	NSString *growlOn;
 	NSUserDefaults *standardUserDefaults;
+	float masterX;
 }
 
 -(IBAction)save:(id)sender;
