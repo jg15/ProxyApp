@@ -32,7 +32,7 @@
 	NSString *autoProxyResume;
 	NSString *growl;
 	
-	NSObject *toFill;
+	//NSObject *toFill;
 	
 	NSDictionary *options;
     NSImage *img;

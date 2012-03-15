@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5701F3DB1511C1BE009A5816 /* spinner.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5701F3DA1511C1BE009A5816 /* spinner.xib */; };
+		5701F3E01511C3F9009A5816 /* SpinnerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5701F3DF1511C3F9009A5816 /* SpinnerController.m */; };
+		5701F3E31511D1AB009A5816 /* SpinnerDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 5701F3E21511D1AB009A5816 /* SpinnerDriver.m */; };
 		57127CD514DA60BC00D2E891 /* launchAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57127CD414DA60BC00D2E891 /* launchAtLoginController.m */; };
 		57460F5414E24BC30085BBAC /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57460F5314E24BC30085BBAC /* Sparkle.framework */; };
 		57460F5514E24BCE0085BBAC /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 57460F5314E24BC30085BBAC /* Sparkle.framework */; };
@@ -46,6 +49,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5701F3DA1511C1BE009A5816 /* spinner.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = spinner.xib; sourceTree = "<group>"; };
+		5701F3DE1511C3F9009A5816 /* SpinnerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpinnerController.h; sourceTree = "<group>"; };
+		5701F3DF1511C3F9009A5816 /* SpinnerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpinnerController.m; sourceTree = "<group>"; };
+		5701F3E11511D1AB009A5816 /* SpinnerDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpinnerDriver.h; sourceTree = "<group>"; };
+		5701F3E21511D1AB009A5816 /* SpinnerDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpinnerDriver.m; sourceTree = "<group>"; };
 		57127CD314DA60BC00D2E891 /* launchAtLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = launchAtLoginController.h; sourceTree = "<group>"; };
 		57127CD414DA60BC00D2E891 /* launchAtLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = launchAtLoginController.m; sourceTree = "<group>"; };
 		57460F5314E24BC30085BBAC /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
@@ -94,6 +102,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5701F3DD1511C394009A5816 /* Spinner */ = {
+			isa = PBXGroup;
+			children = (
+				5701F3DE1511C3F9009A5816 /* SpinnerController.h */,
+				5701F3DF1511C3F9009A5816 /* SpinnerController.m */,
+				5701F3E11511D1AB009A5816 /* SpinnerDriver.h */,
+				5701F3E21511D1AB009A5816 /* SpinnerDriver.m */,
+				5701F3DA1511C1BE009A5816 /* spinner.xib */,
+			);
+			name = Spinner;
+			path = ProxyApp;
+			sourceTree = "<group>";
+		};
 		57127CD714DA60C400D2E891 /* Auto Launch */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +128,7 @@
 		5791619314D13EE900786962 = {
 			isa = PBXGroup;
 			children = (
+				5701F3DD1511C394009A5816 /* Spinner */,
 				57127CD714DA60C400D2E891 /* Auto Launch */,
 				57E0847E14D5F6D80098391D /* Prefs */,
 				579161A814D13EE900786962 /* ProxyApp */,
@@ -224,7 +246,7 @@
 		5791619514D13EE900786962 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = 5791619814D13EE900786962 /* Build configuration list for PBXProject "ProxyApp" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -260,6 +282,7 @@
 				57C855FC14D652EA009D0B98 /* icon.icns in Resources */,
 				57514F5B14EAF0ED00B74FC7 /* Growl Registration Ticket.growlRegDict in Resources */,
 				5771E11314F1CA6500F1E472 /* ssh_connect in Resources */,
+				5701F3DB1511C1BE009A5816 /* spinner.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +298,8 @@
 				57E0847314D5DB320098391D /* AppController.m in Sources */,
 				57E0847614D5DB590098391D /* PrefController.m in Sources */,
 				57127CD514DA60BC00D2E891 /* launchAtLoginController.m in Sources */,
+				5701F3E01511C3F9009A5816 /* SpinnerController.m in Sources */,
+				5701F3E31511D1AB009A5816 /* SpinnerDriver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

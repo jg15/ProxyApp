@@ -22,6 +22,7 @@
 	[[self.prefController window] makeKeyAndOrderFront: self];
     [self.prefController showWindow:self];
 	[[NSApplication sharedApplication] arrangeInFront:nil];
+	[[self.prefController window] setLevel:NSPopUpMenuWindowLevel];
 }
 
 - (void)dealloc {
@@ -45,6 +46,8 @@
 }
 
 -(id)fillFields{
+	
+	//[spinner startAnimation:self];
 	
 	standardUserDefaults = [NSUserDefaults standardUserDefaults];
 	

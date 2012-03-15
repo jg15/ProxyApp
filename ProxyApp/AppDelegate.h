@@ -12,6 +12,7 @@
 #import <Growl/Growl.h>
 
 #import "PrefController.h"
+#import "SpinnerDriver.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate,GrowlApplicationBridgeDelegate> {
 	IBOutlet SUUpdater *updater;
@@ -39,6 +40,7 @@
 	NSArray *args;
 	NSString *preargs;
     //NSImage *statusHighlightImage;
+	SpinnerDriver *spinner;
 }
 
 -(void)growl:(NSString *)title:(NSString *)msg;

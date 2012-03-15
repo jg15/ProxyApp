@@ -8,18 +8,15 @@
 
 #import "AppDelegate.h"
 
-/*#include <IOKit/pwr_mgt/IOPMLib.h>
-#include <IOKit/IOMessage.h>*/
-
-
 BOOL proxyIsOn = NO;
 BOOL statusMenuOn = YES;
 BOOL autoCheckForUpdates = YES;
 BOOL proxyWasOn = NO;
 BOOL proxyResume = YES;
+BOOL spinnerIsOn = NO;
 
 @implementation AppDelegate
-@synthesize prefWindow, prefController;
+@synthesize prefWindow, prefController;//, spinWindow, spinnerController;
 @synthesize window = _window;
 
 - (NSDictionary *)registrationDictionaryForGrowl {
@@ -69,7 +66,14 @@ BOOL proxyResume = YES;
     data = [[notification userInfo] objectForKey:NSFileHandleNotificationDataItem]; 
     text = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
 	
-	if([text isLike:@"CONNECTED"]){[statusItem setImage:statusImageOn];}
+	if([text isLike:@"CONNECTED"]){
+		[statusItem setImage:statusImageOn];
+		if(spinnerIsOn){
+			[spinner stop];
+			[spinner release];
+			spinnerIsOn=NO;
+		}
+	}
 	
 	[self growl:@"Message:":text];
 	NSLog(@"%@",text);
@@ -114,10 +118,14 @@ BOOL proxyResume = YES;
 }
 
 -(void)proxyToggleOn{
+	spinner=[[SpinnerDriver alloc] init];
+	[spinner start];
+	spinnerIsOn=YES;
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(readSshOutput:) name:NSFileHandleReadCompletionNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sshDone:) name:NSTaskDidTerminateNotification object:nil];
 	//[statusItem setTitle:@"Starting..."];
 	[statusItem setImage:statusImageChange];
+	//[spinnerDriver performSelector:@selector(spin:)];
 	system("networksetup -setsocksfirewallproxystate Wi-Fi on");
 	_ssh = [NSTask new];
 	sshOutput = [NSPipe pipe];
@@ -151,6 +159,11 @@ BOOL proxyResume = YES;
 }
 
 -(void)proxyToggleOff{
+	if(spinnerIsOn){
+		[spinner stop];
+		[spinner release];
+		spinnerIsOn=NO;
+	}
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	//[statusItem setTitle:@"Stopping..."];
 	[statusItem setImage:statusImageChange];
@@ -223,6 +236,7 @@ BOOL proxyResume = YES;
 }
 
 - (void)dealloc{
+	//[spinStarter release];
     [statusImageOn release];
 	[statusImageOff release];
 	[statusImageChange release];
@@ -231,4 +245,5 @@ BOOL proxyResume = YES;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 	[super dealloc];
 }
+
 @end
