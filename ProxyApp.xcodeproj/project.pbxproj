@@ -175,7 +175,6 @@
 				579161B414D13EE900786962 /* AppDelegate.h */,
 				579161B514D13EE900786962 /* AppDelegate.m */,
 				579161B714D13EEA00786962 /* MainMenu.xib */,
-				57E0847714D5DB6D0098391D /* prefs.xib */,
 				579161A914D13EE900786962 /* Supporting Files */,
 			);
 			path = ProxyApp;
@@ -196,6 +195,7 @@
 		57E0847E14D5F6D80098391D /* Prefs */ = {
 			isa = PBXGroup;
 			children = (
+				57E0847714D5DB6D0098391D /* prefs.xib */,
 				57E0847114D5DB320098391D /* AppController.h */,
 				57E0847214D5DB320098391D /* AppController.m */,
 				57E0847414D5DB590098391D /* PrefController.h */,
@@ -383,6 +383,7 @@
 		579161D114D13EEA00786962 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -398,6 +399,7 @@
 		579161D214D13EEA00786962 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",

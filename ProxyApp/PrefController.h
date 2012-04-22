@@ -18,9 +18,11 @@
     IBOutlet id port;
 	IBOutlet id autoProxyResume;
 	IBOutlet id growl;
+	IBOutlet id verboseGrowl;
 	NSString *strictHostKeyOn;
 	NSString *autoProxyResumeOn;
 	NSString *growlOn;
+	NSString *verboseGrowlOn;
 	NSUserDefaults *standardUserDefaults;
 	float masterX;
 }
@@ -29,5 +31,6 @@
 -(IBAction)strictHostKey:(id)sender;
 -(IBAction)autoProxyResume:(id)sender;
 -(IBAction)growl:(id)sender;
+-(IBAction)verboseGrowl:(id)sender;
 
 @end

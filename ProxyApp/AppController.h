@@ -17,12 +17,15 @@
 	IBOutlet NSButton *strictHostKeyCheckingToggle;
 	IBOutlet NSButton *autoProxyResumeToggle;
 	IBOutlet NSButton *growlToggle;
+	IBOutlet NSButton *verboseGrowlToggle;
+	IBOutlet NSTabView *tabView;
 	
 	id ToFill;
 	int tempValSHK;
 	int tempValAPR;
 	int tempGrowl;
-	
+	int tempVerboseGrowl;
+
 	NSUserDefaults *standardUserDefaults;
 	NSString *server;
 	NSString *username;
@@ -31,6 +34,7 @@
 	NSString *strictHostKey;
 	NSString *autoProxyResume;
 	NSString *growl;
+	NSString *verboseGrowl;
 	
 	//NSObject *toFill;
 	
@@ -40,8 +44,11 @@
 @property (assign) IBOutlet NSWindow *prefWindow;
 @property (retain) PrefController *prefController;
 
+-(IBAction)changeTab:(id)sender;
 -(IBAction)showPreferences:(id)sender; 
 -(IBAction)about:(id)sender;
 -(IBAction)quit:(id)sender;
 -(id)fillFields;
+-(void)adjustSize;
+
 @end

@@ -12,6 +12,7 @@
 @interface SpinnerDriver : NSObject{
 	id spinStarter;
 	IBOutlet id spinner;
+	NSWindow *spinWindow;
 }
 
 -(id)ToSpin;

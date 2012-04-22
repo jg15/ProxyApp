@@ -79,6 +79,7 @@ BOOL ChangedGrowl=NO;
 			[standardUserDefaults setObject:strictHostKeyOn forKey:@"strictHostKey"];
 			[standardUserDefaults setObject:autoProxyResumeOn forKey:@"autoProxyResume"];
 			[standardUserDefaults setObject:growlOn forKey:@"growl"];
+			[standardUserDefaults setObject:verboseGrowlOn forKey:@"verboseGrowl"];
 			[standardUserDefaults synchronize];
 			ChangedSHK=NO;
 			ChangedAPR=NO;
@@ -98,7 +99,17 @@ BOOL ChangedGrowl=NO;
 }
 
 -(IBAction)growl:(id)sender{
-	if([growl state]==NSOnState){growlOn=@"On";}else{growlOn=@"Off";}
+	if([growl state]==NSOnState){
+		growlOn=@"On";
+		[verboseGrowl setEnabled:YES];
+	}else{
+		[verboseGrowl setEnabled:NO];
+		growlOn=@"Off";
+	}
 	ChangedGrowl=YES;
+}
+
+-(IBAction)verboseGrowl:(id)sender{
+	if([verboseGrowl state]==NSOnState){verboseGrowlOn=@"On";}else{verboseGrowlOn=@"Off";}
 }
 @end

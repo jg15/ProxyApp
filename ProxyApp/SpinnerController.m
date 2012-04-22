@@ -14,14 +14,11 @@
 	if (!(self=[super initWithWindowNibName:@"spinner"])){
 		return nil;
     }
-	/*[[self window] setOpaque:NO];
-	NSColor *backgroundColor = [[self window] backgroundColor];
-	backgroundColor = [backgroundColor colorWithAlphaComponent:0.0];
-	[[self window] setBackgroundColor:backgroundColor];*/
     return self;
 }
 
 - (void)windowDidLoad{
+	//[[self window] setCollectionBehavior: NSWindowCollectionBehaviorCanJoinAllSpaces];
     [super windowDidLoad];
 }
 

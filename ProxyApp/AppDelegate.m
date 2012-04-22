@@ -27,11 +27,13 @@ BOOL spinnerIsOn = NO;
 	standardUserDefaults = [NSUserDefaults standardUserDefaults];
 	if (standardUserDefaults){
 		if([[standardUserDefaults objectForKey:@"growl"] isEqualToString:@"On"]){
+			if([[standardUserDefaults objectForKey:@"verboseGrowl"] isEqualToString:@"On"]||[msg isEqualToString:@"CONNECTED"]||[msg isEqualToString:@"DISCONNECTED"]){
 			NSString *name = @"Message";
 			[GrowlApplicationBridge notifyWithTitle:title description:msg notificationName:name iconData:nil priority:0 isSticky:NO clickContext:nil];
 			[msg release];
 			[name release];
 			[title release];
+			}
 		}
 	}
 }
@@ -118,13 +120,13 @@ BOOL spinnerIsOn = NO;
 }
 
 -(void)proxyToggleOn{
-	spinner=[[SpinnerDriver alloc] init];
-	[spinner start];
-	spinnerIsOn=YES;
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(readSshOutput:) name:NSFileHandleReadCompletionNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sshDone:) name:NSTaskDidTerminateNotification object:nil];
 	//[statusItem setTitle:@"Starting..."];
 	[statusItem setImage:statusImageChange];
+	spinner=[[SpinnerDriver alloc] init];
+	[spinner start];
+	spinnerIsOn=YES;
 	//[spinnerDriver performSelector:@selector(spin:)];
 	system("networksetup -setsocksfirewallproxystate Wi-Fi on");
 	_ssh = [NSTask new];

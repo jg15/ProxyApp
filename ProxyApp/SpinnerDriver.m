@@ -23,6 +23,7 @@ BOOL spinShowing=NO;
 		backgroundColor = [backgroundColor colorWithAlphaComponent:0.0];
 		[[self.spinnerController window] setBackgroundColor:backgroundColor];
 		//[[self.spinnerController window] setBackgroundColor:[NSColor colorWithDeviceRed:1.0 green:1.0 blue:1.0 alpha:0.0]];
+		spinWindow=[self.spinnerController window];
 		spinStarter=[self.spinnerController window].delegate;
 		[spinStarter ToSpin];
 		//[spinner performSelector:@selector(startAnimation:) withObject:spinStarter];
@@ -33,6 +34,7 @@ BOOL spinShowing=NO;
 		[[NSApplication sharedApplication] arrangeInFront:nil];
 		[[self.spinnerController window] setLevel:NSPopUpMenuWindowLevel];
 		spinShowing=YES;
+		NSLog(@"%@",self);
 	}else{
 		return nil;
 	}
