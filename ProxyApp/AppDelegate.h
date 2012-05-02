@@ -11,6 +11,7 @@
 #import <Sparkle/SUUpdater.h>
 #import <Growl/Growl.h>
 
+#import "AppController.h"
 #import "PrefController.h"
 #import "SpinnerDriver.h"
 
@@ -47,6 +48,7 @@
 -(void)proxyToggle;
 -(void)proxyToggleOn;
 -(void)proxyToggleOff;
+-(void)checkOldVersion;
 
 @property (assign) IBOutlet NSWindow *prefWindow;
 @property (retain) PrefController *prefController;

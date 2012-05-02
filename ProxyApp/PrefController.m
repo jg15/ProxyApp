@@ -7,6 +7,7 @@
 //
 
 #import "PrefController.h"
+#import "Keychain.h"
 
 static int numberOfShakes = 4;
 static float durationOfShake = 0.5f;
@@ -74,7 +75,8 @@ BOOL ChangedGrowl=NO;
 		if (standardUserDefaults) {
 			[standardUserDefaults setObject:[server stringValue] forKey:@"server"];
 			[standardUserDefaults setObject:[username stringValue] forKey:@"username"];
-			[standardUserDefaults setObject:[password stringValue] forKey:@"password"];
+			//[standardUserDefaults setObject:[password stringValue] forKey:@"password"];
+			[keychain setItem:@"ProxyApp" withPassword:[password stringValue]];
 			[standardUserDefaults setObject:[port stringValue] forKey:@"port"];
 			[standardUserDefaults setObject:strictHostKeyOn forKey:@"strictHostKey"];
 			[standardUserDefaults setObject:autoProxyResumeOn forKey:@"autoProxyResume"];

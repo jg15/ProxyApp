@@ -7,11 +7,16 @@
 //
 
 #import "AppController.h"
+#import "Keychain.h"
 
 @implementation AppController
 @synthesize prefWindow, prefController;
 
 -(IBAction)showPreferences:(id)sender{
+	[self openPreferences];
+}
+
+-(void)openPreferences{
 	if(!self.prefController){
         self.prefController = [[PrefController alloc] init];
     }
@@ -66,7 +71,8 @@
 	if (standardUserDefaults){
 		server = [standardUserDefaults objectForKey:@"server"];
 		username = [standardUserDefaults objectForKey:@"username"];
-		password = [standardUserDefaults objectForKey:@"password"];
+		//password = [standardUserDefaults objectForKey:@"password"];
+		password = [keychain getItem:@"ProxyApp"];
 		port = [standardUserDefaults objectForKey:@"port"];
 		strictHostKey = [standardUserDefaults objectForKey:@"strictHostKey"];
 		autoProxyResume = [standardUserDefaults objectForKey:@"autoProxyResume"];
@@ -100,16 +106,6 @@
 		[[self.prefController window] setFrame:windowFrame display:YES animate:YES];
 	//}else if ([tabView identifier]==@"Server Settings") {
 		
-	//}
-}
-
--(IBAction)changeTab:(id)sender{
-	NSRect windowFrame = [[self.prefController window] frame];
-	windowFrame.size.height = 180.0f;
-	//if([tabView identifier]==@"Program Options"){
-	[[self.prefController window] setFrame:windowFrame display:YES animate:YES];
-	//}else if ([tabView identifier]==@"Server Settings") {
-	
 	//}
 }
 

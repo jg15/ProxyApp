@@ -44,10 +44,10 @@
 @property (assign) IBOutlet NSWindow *prefWindow;
 @property (retain) PrefController *prefController;
 
--(IBAction)changeTab:(id)sender;
 -(IBAction)showPreferences:(id)sender; 
 -(IBAction)about:(id)sender;
 -(IBAction)quit:(id)sender;
+-(void)openPreferences;
 -(id)fillFields;
 -(void)adjustSize;
 

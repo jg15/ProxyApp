@@ -24,6 +24,8 @@
 		579161B314D13EE900786962 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 579161B114D13EE900786962 /* Credits.rtf */; };
 		579161B614D13EE900786962 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 579161B514D13EE900786962 /* AppDelegate.m */; };
 		579161B914D13EEA00786962 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 579161B714D13EEA00786962 /* MainMenu.xib */; };
+		57BB2C471550B4ED00067157 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57BB2C461550B4ED00067157 /* Security.framework */; };
+		57BB2C561550BCE900067157 /* Keychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 57BB2C551550BCE900067157 /* Keychain.m */; };
 		57C855ED14D62BA1009D0B98 /* off.png in Resources */ = {isa = PBXBuildFile; fileRef = 57C855EA14D62BA1009D0B98 /* off.png */; };
 		57C855EE14D62BA1009D0B98 /* on.png in Resources */ = {isa = PBXBuildFile; fileRef = 57C855EB14D62BA1009D0B98 /* on.png */; };
 		57C855EF14D62BA1009D0B98 /* starting.png in Resources */ = {isa = PBXBuildFile; fileRef = 57C855EC14D62BA1009D0B98 /* starting.png */; };
@@ -75,6 +77,9 @@
 		579161B514D13EE900786962 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		579161B814D13EEA00786962 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		579161C014D13EEA00786962 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		57BB2C461550B4ED00067157 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		57BB2C541550BCE900067157 /* Keychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Keychain.h; path = ../Keychain.h; sourceTree = "<group>"; };
+		57BB2C551550BCE900067157 /* Keychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Keychain.m; path = ../Keychain.m; sourceTree = "<group>"; };
 		57C855EA14D62BA1009D0B98 /* off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = off.png; sourceTree = "<group>"; };
 		57C855EB14D62BA1009D0B98 /* on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = on.png; sourceTree = "<group>"; };
 		57C855EC14D62BA1009D0B98 /* starting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starting.png; sourceTree = "<group>"; };
@@ -92,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57BB2C471550B4ED00067157 /* Security.framework in Frameworks */,
 				5787D43D14F2DDFA00DE2CF3 /* QuartzCore.framework in Frameworks */,
 				579161A314D13EE900786962 /* Cocoa.framework in Frameworks */,
 				57460F5414E24BC30085BBAC /* Sparkle.framework in Frameworks */,
@@ -128,6 +134,7 @@
 		5791619314D13EE900786962 = {
 			isa = PBXGroup;
 			children = (
+				57BB2C451550B4C000067157 /* Keychain */,
 				5701F3DD1511C394009A5816 /* Spinner */,
 				57127CD714DA60C400D2E891 /* Auto Launch */,
 				57E0847E14D5F6D80098391D /* Prefs */,
@@ -149,6 +156,7 @@
 		579161A114D13EE900786962 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				57BB2C461550B4ED00067157 /* Security.framework */,
 				5787D43C14F2DDF900DE2CF3 /* QuartzCore.framework */,
 				57514F5414EAEFEC00B74FC7 /* Growl.framework */,
 				57460F5314E24BC30085BBAC /* Sparkle.framework */,
@@ -190,6 +198,16 @@
 				579161B114D13EE900786962 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		57BB2C451550B4C000067157 /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				57BB2C541550BCE900067157 /* Keychain.h */,
+				57BB2C551550BCE900067157 /* Keychain.m */,
+			);
+			name = Keychain;
+			path = ProxyApp;
 			sourceTree = "<group>";
 		};
 		57E0847E14D5F6D80098391D /* Prefs */ = {
@@ -300,6 +318,7 @@
 				57127CD514DA60BC00D2E891 /* launchAtLoginController.m in Sources */,
 				5701F3E01511C3F9009A5816 /* SpinnerController.m in Sources */,
 				5701F3E31511D1AB009A5816 /* SpinnerDriver.m in Sources */,
+				57BB2C561550BCE900067157 /* Keychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

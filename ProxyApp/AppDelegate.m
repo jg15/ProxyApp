@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Keychain.h"
 
 BOOL proxyIsOn = NO;
 BOOL statusMenuOn = YES;
@@ -56,6 +57,7 @@ BOOL spinnerIsOn = NO;
     [statusItem setTarget:self];
 	if(autoCheckForUpdates)[updater checkForUpdatesInBackground];
 	[GrowlApplicationBridge setGrowlDelegate:self]; //Growl Setup
+	[self checkOldVersion];
 }
 
 -(void)readSshOutput: (NSNotification *)notification{
@@ -96,13 +98,16 @@ BOOL spinnerIsOn = NO;
 	standardUserDefaults = [NSUserDefaults standardUserDefaults];
 	if(!([standardUserDefaults objectForKey:@"server"]&&[standardUserDefaults objectForKey:@"username"])){
 		NSRunAlertPanel(@"Note:", @"You have not set preferences yet. Please do so now.", @"Open Preferences", nil, nil);
-		if(!self.prefController){
+		id PrefLauncher=[[AppController alloc] init];
+		[PrefLauncher openPreferences];
+		[PrefLauncher release];
+		/*if(!self.prefController){
 			self.prefController = [[PrefController alloc] init];
 		}
 		[NSApp activateIgnoringOtherApps:YES];
 		[[self.prefController window] center];
 		[self.prefController showWindow:self];
-		[[NSApplication sharedApplication] arrangeInFront:nil];
+		[[NSApplication sharedApplication] arrangeInFront:nil];*/
 	}else{
 		statusMenuOn=YES;
 		NSEvent *event = [NSApp currentEvent];
@@ -148,7 +153,7 @@ BOOL spinnerIsOn = NO;
 	if([password isEqualToString:@""])password=NULL;
 	args = [NSArray arrayWithObjects:port,server,username,arg,arg2,password,nil];
 	[_ssh setLaunchPath:[NSBundle pathForResource:@"ssh_connect" ofType:@"" inDirectory:[[NSBundle mainBundle] bundlePath]]];
-	//}
+		//}
 	
 	NSLog(@"Starting Proxy");
 	[_ssh setArguments:args];
@@ -187,7 +192,8 @@ BOOL spinnerIsOn = NO;
 		if (standardUserDefaults){
 			server = [standardUserDefaults objectForKey:@"server"];
 			username = [standardUserDefaults objectForKey:@"username"];
-			password = [standardUserDefaults objectForKey:@"password"];
+			//password = [standardUserDefaults objectForKey:@"password"];
+			password = [keychain getItem:@"ProxyApp"];
 			port = [standardUserDefaults objectForKey:@"port"];
 			strictHostKey = [standardUserDefaults objectForKey:@"strictHostKey"];
 			autoProxyResume = [standardUserDefaults objectForKey:@"autoProxyResume"];
@@ -203,6 +209,17 @@ BOOL spinnerIsOn = NO;
 			}
 		}
     }
+}
+
+-(void)checkOldVersion{
+	standardUserDefaults = [NSUserDefaults standardUserDefaults];
+	if(standardUserDefaults){
+		if([standardUserDefaults objectForKey:@"password"]){
+			NSRunAlertPanel(@"Message:", @"You have just upgraded ProxyApp! Will now attempt to move your password to the Keychain and setup new configuration.", @"OK", nil, nil);
+			[keychain setItem:@"ProxyApp" withPassword:[standardUserDefaults objectForKey:@"password"]];
+			[standardUserDefaults removeObjectForKey:@"password"];
+		}
+	}
 }
 
 -(void)receiveSleepNote:(NSNotification*)note{
