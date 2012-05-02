@@ -25,7 +25,7 @@
 		579161B614D13EE900786962 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 579161B514D13EE900786962 /* AppDelegate.m */; };
 		579161B914D13EEA00786962 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 579161B714D13EEA00786962 /* MainMenu.xib */; };
 		57BB2C471550B4ED00067157 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57BB2C461550B4ED00067157 /* Security.framework */; };
-		57C3F2AE1550CC270001C0FF /* Keychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C3F2AD1550CC270001C0FF /* Keychain.m */; };
+		57BB2C561550BCE900067157 /* Keychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 57BB2C551550BCE900067157 /* Keychain.m */; };
 		57C855ED14D62BA1009D0B98 /* off.png in Resources */ = {isa = PBXBuildFile; fileRef = 57C855EA14D62BA1009D0B98 /* off.png */; };
 		57C855EE14D62BA1009D0B98 /* on.png in Resources */ = {isa = PBXBuildFile; fileRef = 57C855EB14D62BA1009D0B98 /* on.png */; };
 		57C855EF14D62BA1009D0B98 /* starting.png in Resources */ = {isa = PBXBuildFile; fileRef = 57C855EC14D62BA1009D0B98 /* starting.png */; };
@@ -78,8 +78,8 @@
 		579161B814D13EEA00786962 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		579161C014D13EEA00786962 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		57BB2C461550B4ED00067157 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		57C3F2AC1550CC270001C0FF /* Keychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Keychain.h; sourceTree = "<group>"; };
-		57C3F2AD1550CC270001C0FF /* Keychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Keychain.m; sourceTree = "<group>"; };
+		57BB2C541550BCE900067157 /* Keychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Keychain.h; path = ../Keychain.h; sourceTree = "<group>"; };
+		57BB2C551550BCE900067157 /* Keychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Keychain.m; path = ../Keychain.m; sourceTree = "<group>"; };
 		57C855EA14D62BA1009D0B98 /* off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = off.png; sourceTree = "<group>"; };
 		57C855EB14D62BA1009D0B98 /* on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = on.png; sourceTree = "<group>"; };
 		57C855EC14D62BA1009D0B98 /* starting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starting.png; sourceTree = "<group>"; };
@@ -203,8 +203,8 @@
 		57BB2C451550B4C000067157 /* Keychain */ = {
 			isa = PBXGroup;
 			children = (
-				57C3F2AC1550CC270001C0FF /* Keychain.h */,
-				57C3F2AD1550CC270001C0FF /* Keychain.m */,
+				57BB2C541550BCE900067157 /* Keychain.h */,
+				57BB2C551550BCE900067157 /* Keychain.m */,
 			);
 			name = Keychain;
 			path = ProxyApp;
@@ -318,7 +318,7 @@
 				57127CD514DA60BC00D2E891 /* launchAtLoginController.m in Sources */,
 				5701F3E01511C3F9009A5816 /* SpinnerController.m in Sources */,
 				5701F3E31511D1AB009A5816 /* SpinnerDriver.m in Sources */,
-				57C3F2AE1550CC270001C0FF /* Keychain.m in Sources */,
+				57BB2C561550BCE900067157 /* Keychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
