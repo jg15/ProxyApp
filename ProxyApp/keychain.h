@@ -1,5 +1,6 @@
 //
-//  keychain.h
+//  Keychain.h
+//  ProxyApp
 //
 //  Created by Joshua Girard on 3/19/12.
 //  Copyright (c) 2012 Joshua Girard. All rights reserved.
