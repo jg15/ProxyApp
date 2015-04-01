@@ -4,10 +4,20 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Growl.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>ProxyApp.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+		<key>ProxyAppXPC.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -18,6 +28,16 @@
 			<true/>
 		</dict>
 		<key>579161BE14D13EEA00786962</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>57A43A0F156940640005C6A8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>57B3E20A1564E11A0060457B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

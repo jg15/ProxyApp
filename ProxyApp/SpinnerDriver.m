@@ -9,7 +9,7 @@
 #import "SpinnerDriver.h"
 
 @implementation SpinnerDriver
-@synthesize spinWindow, spinnerController;
+@synthesize spinWindow,spinnerController;
 
 BOOL spinShowing=NO;
 
@@ -34,7 +34,7 @@ BOOL spinShowing=NO;
 		[[NSApplication sharedApplication] arrangeInFront:nil];
 		[[self.spinnerController window] setLevel:NSPopUpMenuWindowLevel];
 		spinShowing=YES;
-		NSLog(@"%@",self);
+		//NSLog(@"%@",self);
 	}else{
 		return nil;
 	}

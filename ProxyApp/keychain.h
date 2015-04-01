@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <Security/Security.h>
+#import "SSKeychain.h"
 
-@interface keychain : NSObject <NSApplicationDelegate>
+@interface keychain : NSObject
 
 +(BOOL)setItem:(NSString *)serviceName withPassword:(NSString *)password;
 +(BOOL)addItem:(NSString *)serviceName withPassword:(NSString *)password;
