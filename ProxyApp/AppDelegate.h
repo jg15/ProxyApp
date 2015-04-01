@@ -9,20 +9,20 @@
 #import <Cocoa/Cocoa.h>
 #import <Sparkle/Sparkle.h>
 #import <Sparkle/SUUpdater.h>
+#import <Growl/Growl.h>
 
 #import "AppController.h"
 #import "PrefController.h"
 #import "SpinnerDriver.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate,NSUserNotificationCenterDelegate> {
+@interface AppDelegate : NSObject <NSApplicationDelegate,GrowlApplicationBridgeDelegate> {
 	IBOutlet SUUpdater *updater;
     IBOutlet NSMenu *statusMenu;
     IBOutlet NSMenu *controlMenu;
     NSStatusItem *statusItem;
     NSImage *statusImageOn;
 	NSImage *statusImageOff;
-	//NSImage *statusImageChange;
-	NSArray *conImages;
+	NSImage *statusImageChange;
 	NSTask *_ssh;
 	NSPipe *sshOutput;
 	NSPipe *sshError;
@@ -42,28 +42,13 @@
 	NSString *preargs;
     //NSImage *statusHighlightImage;
 	SpinnerDriver *spinner;
-	
-	NSWindow *prefWindow;
-	PrefController *prefController;
-	NSWindow *window;
-	
-	NSInteger currentFrame;
-	BOOL frameSwitcher;
-	BOOL animationActive;
-	
-	NSTimer *animationTimer;
-	
-	BOOL connectionEstablished;
-	
 }
--(BOOL) hasNetworkClientEntitlement;
+
 -(void)growl:(NSString *)title:(NSString *)msg;
 -(void)proxyToggle;
 -(void)proxyToggleOn;
 -(void)proxyToggleOff;
 -(void)checkOldVersion;
-
--(void)nextAnimationFrame;
 
 @property (assign) IBOutlet NSWindow *prefWindow;
 @property (retain) PrefController *prefController;

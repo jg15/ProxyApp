@@ -18,8 +18,6 @@
 	IBOutlet NSButton *autoProxyResumeToggle;
 	IBOutlet NSButton *growlToggle;
 	IBOutlet NSButton *verboseGrowlToggle;
-	IBOutlet NSButton *tunnelWiFiToggle;
-	IBOutlet NSButton *tunnelEthernetToggle;
 	IBOutlet NSTabView *tabView;
 	
 	id ToFill;
@@ -27,8 +25,6 @@
 	int tempValAPR;
 	int tempGrowl;
 	int tempVerboseGrowl;
-	int tempTunnelWiFi;
-	int tempTunnelEthernet;
 
 	NSUserDefaults *standardUserDefaults;
 	NSString *server;
@@ -39,16 +35,11 @@
 	NSString *autoProxyResume;
 	NSString *growl;
 	NSString *verboseGrowl;
-	NSString *tunnelWiFi;
-	NSString *tunnelEthernet;
 	
 	//NSObject *toFill;
 	
 	NSDictionary *options;
     NSImage *img;
-	
-	NSWindow *prefWindow;
-	PrefController *prefController;
 }
 @property (assign) IBOutlet NSWindow *prefWindow;
 @property (retain) PrefController *prefController;

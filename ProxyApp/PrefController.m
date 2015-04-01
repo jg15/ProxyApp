@@ -16,8 +16,6 @@ static float vigourOfShake = 0.05f;
 BOOL ChangedSHK=NO;
 BOOL ChangedAPR=NO;
 BOOL ChangedGrowl=NO;
-BOOL ChangedTW=NO;
-BOOL ChangedTE=NO;
 
 @implementation PrefController
 
@@ -74,8 +72,6 @@ BOOL ChangedTE=NO;
 		if(!ChangedSHK){strictHostKeyOn = [standardUserDefaults objectForKey:@"strictHostKey"];}
 		if(!ChangedAPR){autoProxyResumeOn = [standardUserDefaults objectForKey:@"autoProxyResume"];}
 		if(!ChangedGrowl){growlOn = [standardUserDefaults objectForKey:@"growl"];}
-		if(!ChangedTW){dontTunnelWiFi = [standardUserDefaults objectForKey:@"dontTunnelWiFi"];}
-		if(!ChangedTE){dontTunnelEthernet = [standardUserDefaults objectForKey:@"dontTunnelEthernet"];}
 		if (standardUserDefaults) {
 			[standardUserDefaults setObject:[server stringValue] forKey:@"server"];
 			[standardUserDefaults setObject:[username stringValue] forKey:@"username"];
@@ -86,14 +82,10 @@ BOOL ChangedTE=NO;
 			[standardUserDefaults setObject:autoProxyResumeOn forKey:@"autoProxyResume"];
 			[standardUserDefaults setObject:growlOn forKey:@"growl"];
 			[standardUserDefaults setObject:verboseGrowlOn forKey:@"verboseGrowl"];
-			[standardUserDefaults setObject:dontTunnelWiFi forKey:@"dontTunnelWiFi"];
-			[standardUserDefaults setObject:dontTunnelEthernet forKey:@"dontTunnelEthernet"];
 			[standardUserDefaults synchronize];
 			ChangedSHK=NO;
 			ChangedAPR=NO;
 			ChangedGrowl=NO;
-			ChangedTW=NO;
-			ChangedTE=NO;
 		}
 	}
 }
@@ -121,15 +113,5 @@ BOOL ChangedTE=NO;
 
 -(IBAction)verboseGrowl:(id)sender{
 	if([verboseGrowl state]==NSOnState){verboseGrowlOn=@"On";}else{verboseGrowlOn=@"Off";}
-}
-
--(IBAction)tunnelWiFi:(id)sender{
-	if([tunnelWiFi state]==NSOnState){dontTunnelWiFi=@"True";}else{dontTunnelWiFi=@"False";}
-	ChangedTW=YES;
-}
-
--(IBAction)tunnelEthernet:(id)sender{
-	if([tunnelEthernet state]==NSOnState){dontTunnelEthernet=@"True";}else{dontTunnelEthernet=@"False";}
-	ChangedTE=YES;
 }
 @end

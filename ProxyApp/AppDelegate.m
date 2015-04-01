@@ -8,43 +8,29 @@
 
 #import "AppDelegate.h"
 #import "Keychain.h"
-#import "ConfigureSOCKS.h"
 
 BOOL proxyIsOn = NO;
 BOOL statusMenuOn = YES;
 BOOL autoCheckForUpdates = YES;
 BOOL proxyWasOn = NO;
 BOOL proxyResume = YES;
-//BOOL spinnerIsOn = NO;
+BOOL spinnerIsOn = NO;
 
 @implementation AppDelegate
 @synthesize prefWindow, prefController;//, spinWindow, spinnerController;
-@synthesize window;// = _window;
+@synthesize window = _window;
 
-
--(BOOL) hasNetworkClientEntitlement{
-	return YES;
+- (NSDictionary *)registrationDictionaryForGrowl {
+    return [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Growl Registration Ticket" ofType:@"growlRegDict"]];
 }
+
 -(void)growl:(NSString *)title:(NSString *)msg{
-    NSLog(@"%@",msg);
 	standardUserDefaults = [NSUserDefaults standardUserDefaults];
 	if (standardUserDefaults){
 		if([[standardUserDefaults objectForKey:@"growl"] isEqualToString:@"On"]){
-			if([[standardUserDefaults objectForKey:@"verboseGrowl"] isEqualToString:@"On"]||[msg isEqualToString:@"CONNECTED"]||[msg isEqualToString:@"DISCONNECTED"]||[msg rangeOfString:@"ERROR:"].location!=NSNotFound){
+			if([[standardUserDefaults objectForKey:@"verboseGrowl"] isEqualToString:@"On"]||[msg isEqualToString:@"CONNECTED"]||[msg isEqualToString:@"DISCONNECTED"]){
 			NSString *name = @"Message";
-                SInt32 versionMinor = 0;
-                Gestalt( gestaltSystemVersionMinor, &versionMinor );
-                if(versionMinor>7){
-                    NSUserNotification *notification = [[NSUserNotification alloc] init];
-                    [notification setTitle:title];
-                    [notification setInformativeText:msg];
-                    [notification setDeliveryDate:[NSDate dateWithTimeInterval:0 sinceDate:[NSDate date]]];
-                    [notification setSoundName:nil];
-                    NSUserNotificationCenter *center = [NSUserNotificationCenter defaultUserNotificationCenter];
-                    [center scheduleNotification:notification];
-                    //[center removeDeliveredNotification:notification];
-                    notification=nil;
-                }
+			[GrowlApplicationBridge notifyWithTitle:title description:msg notificationName:name iconData:nil priority:0 isSticky:NO clickContext:nil];
 			[msg release];
 			[name release];
 			[title release];
@@ -52,39 +38,25 @@ BOOL proxyResume = YES;
 		}
 	}
 }
-//NSString
-//- (void)awakeFromNib{
-- (void)begin {
-    [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self selector: @selector(receiveSleepNote:) name: NSWorkspaceWillSleepNotification object: NULL];
+
+- (void)awakeFromNib{
+	[[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self selector: @selector(receiveSleepNote:) name: NSWorkspaceWillSleepNotification object: NULL];
     [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self selector: @selector(receiveWakeNote:) name: NSWorkspaceDidWakeNotification object: NULL];
     statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];
     NSBundle *bundle = [NSBundle mainBundle];
-    statusImageOn = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"on" ofType:@"tiff"]];
-	statusImageOff = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"off" ofType:@"tiff"]];
-	//statusImageChange = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"starting" ofType:@"png"]];
-	conImages = [[NSArray alloc] initWithObjects:[[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"con0" ofType:@"tiff"]], [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"con1" ofType:@"tiff"]], [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"con2" ofType:@"tiff"]], nil];
-	
+    statusImageOn = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"on" ofType:@"png"]];
+	statusImageOff = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"off" ofType:@"png"]];
+	statusImageChange = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"starting" ofType:@"png"]];
 	[statusImageOn setTemplate:YES];
 	[statusImageOff setTemplate:YES];
-	//[statusImageChange setTemplate:YES];
-	
-	animationActive=NO;
-	connectionEstablished=NO;
-	
-	for (NSImage *frame in conImages) {
-		[frame setTemplate:YES];
-	}
-	//[statusItem ]
-	
-	
-	
+	[statusImageChange setTemplate:YES];
     [statusItem setImage:statusImageOff];
     [statusItem setMenu:statusMenu];
     [statusItem setToolTip:@"Proxy App"];
     [statusItem setHighlightMode:YES];
     [statusItem setTarget:self];
 	if(autoCheckForUpdates)[updater checkForUpdatesInBackground];
-	//[GrowlApplicationBridge setGrowlDelegate:self]; //Growl Setup
+	[GrowlApplicationBridge setGrowlDelegate:self]; //Growl Setup
 	[self checkOldVersion];
 }
 
@@ -99,29 +71,19 @@ BOOL proxyResume = YES;
     text = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
 	
 	if([text isLike:@"CONNECTED"]){
-		[self animate:NO];
 		[statusItem setImage:statusImageOn];
-		connectionEstablished=YES;
-		/*
 		if(spinnerIsOn){
 			[spinner stop];
 			[spinner release];
 			spinnerIsOn=NO;
-		}*/
-		[self growl:@"Message:":text];
+		}
 	}
 	
-	
-	if(![text isLike:@"CONNECTED"]){
-		[self growl:@"Message:":text];
-	}
-	
-    //text=nil;
-	
-	//NSLog(@"%@",text);
+	[self growl:@"Message:":text];
+	NSLog(@"%@",text);
 	//NSLog(@"%@",sshError);
 	
-    [text release];
+    //[text release];
     if(proxyIsOn){
         [_fileHandle readInBackgroundAndNotify];
 	}
@@ -147,84 +109,31 @@ BOOL proxyResume = YES;
 		[self.prefController showWindow:self];
 		[[NSApplication sharedApplication] arrangeInFront:nil];*/
 	}else{
+		statusMenuOn=YES;
 		NSEvent *event = [NSApp currentEvent];
 		//NSLog(@"Click count: %ld",[event clickCount]);
-		statusMenuOn=YES;
-		if(([event modifierFlags] & NSAlternateKeyMask)||([NSEvent pressedMouseButtons]==2)){
-			statusMenuOn=NO;
+		if(([event modifierFlags] & NSCommandKeyMask)||([NSEvent pressedMouseButtons]==2)){
 			[statusMenu cancelTrackingWithoutAnimation];
-			//[statusMenu cancelTrackingWithoutAnimation];
 			[statusItem popUpStatusItemMenu:controlMenu];
+			statusMenuOn=NO;
 		}
-		
 	}
 }
 
--(void)menuDidClose:(NSMenu *)menu{
-	if(![menu.title isEqualToString:@"altMenu"])[self proxyToggle];
+-(void)menuDidClose:(NSMenu *)theMenu{
+	[self proxyToggle];
 }
-
--(void)nextAnimationFrame{
-	if(frameSwitcher){
-		[statusItem setImage:[conImages objectAtIndex:currentFrame++]];
-		if(currentFrame>2){
-			frameSwitcher=NO;
-			currentFrame=1;
-		}
-	}else{
-		[statusItem setImage:[conImages objectAtIndex:currentFrame--]];
-		if(currentFrame<0){
-			frameSwitcher=YES;
-			currentFrame=1;
-		}
-
-	}
-
-}
-
--(void)animate:(BOOL)on{
-	if(on){
-		if(!animationActive){
-			animationActive=YES;
-			currentFrame=0;
-			frameSwitcher=YES;
-			animationTimer=nil;
-			animationTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(nextAnimationFrame) userInfo:nil repeats:YES];
-		}
-	}else{
-		[animationTimer invalidate];
-		animationTimer=nil;
-		animationActive=NO;
-	}
-}
-
-
 
 -(void)proxyToggleOn{
-	if(!proxyIsOn){
-		proxyIsOn=YES;
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(readSshOutput:) name:NSFileHandleReadCompletionNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sshDone:) name:NSTaskDidTerminateNotification object:nil];
-	//NSLog(@"AAAAAAAAAAAAAAAAAAAAAA");
 	//[statusItem setTitle:@"Starting..."];
-	//[statusItem setImage:statusImageChange];
-	//[NSThread detachNewThreadSelector:@selector(animate:) toTarget:[self class] withObject:nil];
-	[self animate:YES];
-	
-	//[statusItem set]
-	
-	/*
+	[statusItem setImage:statusImageChange];
 	spinner=[[SpinnerDriver alloc] init];
 	[spinner start];
 	spinnerIsOn=YES;
-	*/
 	//[spinnerDriver performSelector:@selector(spin:)];
-	//system("sudo networksetup -setsocksfirewallproxystate Wi-Fi on");
-	
-	[ConfigureSOCKS on];
-	
-	
-	
+	system("networksetup -setsocksfirewallproxystate Wi-Fi on");
 	_ssh = [NSTask new];
 	sshOutput = [NSPipe pipe];
 	sshError = [NSPipe pipe];
@@ -249,65 +158,32 @@ BOOL proxyResume = YES;
 	NSLog(@"Starting Proxy");
 	[_ssh setArguments:args];
 	[_ssh launch];
-
-	
-	//system("sudo networksetup -setsocksfirewallproxy Wi-Fi 127.0.0.1 7070 off");
-	
-	
-	
-
-	
+	system("networksetup -setsocksfirewallproxy Wi-Fi 127.0.0.1 7070 off");
 	//[statusItem setImage:statusImageChange];
 	//[statusItem setTitle:@"On"];
 	//[statusItem setImage:statusImageOn];
-	}
+	proxyIsOn=YES;
 }
 
 -(void)proxyToggleOff{
-	if(proxyIsOn){
-        
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSFileHandleReadCompletionNotification object:nil];
-	[[NSNotificationCenter defaultCenter] removeObserver:self name:NSTaskDidTerminateNotification object:nil];
-    //NSLog(@"xxx");
-	
-	/*
 	if(spinnerIsOn){
 		[spinner stop];
 		[spinner release];
 		spinnerIsOn=NO;
-	}*/
-	if(_ssh){
-		[_ssh terminate];
-		[_ssh release];
 	}
-	//[[NSNotificationCenter defaultCenter] removeObserver:self];
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	//[statusItem setTitle:@"Stopping..."];
-	//[statusItem setImage:statusImageChange];
-	
-        _ssh=nil;
-        [self animate:YES];
-	
-	
-	/*system("sudo networksetup -setsocksfirewallproxy Wi-Fi '' '' off");
-	system("sudo networksetup -setsocksfirewallproxystate Wi-Fi off");*/
-	[ConfigureSOCKS off];
-	
-	
-	[self animate:NO];
+	[statusItem setImage:statusImageChange];
+	[_ssh terminate];
+	[_ssh release];
+	system("networksetup -setsocksfirewallproxy Wi-Fi '' '' off");
+	system("networksetup -setsocksfirewallproxystate Wi-Fi off");
 	[statusItem setImage:statusImageOff];
 	//[statusItem setTitle:@""];
 	//[statusItem setTitle:@"Off"];
-	
-	if(connectionEstablished){
-		[self growl:@"Message:":@"DISCONNECTED"];
-	}/*else{
-		[self growl:@"Message:":@""];
-	}*/
 	proxyIsOn=NO;
-	connectionEstablished=NO;
-	
+	[self growl:@"Message:":@"DISCONNECTED"];
 	NSLog(@"Stopping Proxy");
-	}
 }
 
 -(void)proxyToggle{	
@@ -375,36 +251,18 @@ BOOL proxyResume = YES;
 		[_ssh release];*/
 		[self proxyToggle];
 	}
+	
 }
 
 - (void)dealloc{
 	//[spinStarter release];
     [statusImageOn release];
 	[statusImageOff release];
-	//[statusImageChange release];
-	[conImages release];
+	[statusImageChange release];
 	[statusItem release];
     //[statusHighlightImage release];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 	[super dealloc];
-}
-
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification{
-    [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
-    [self begin];
-}
-
-- (BOOL)userNotificationCenter:(NSUserNotificationCenter *)center shouldPresentNotification:(NSUserNotification *)notification{
-    return YES;
-}
-
--(void)userNotificationCenter:(NSUserNotificationCenter *)center didActivateNotification:(NSUserNotification *)notification{
-    [center removeDeliveredNotification:notification];
-}
-- (void)userNotificationCenter:(NSUserNotificationCenter *)center didDeliverNotification:(NSUserNotification *)notification{
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        [center removeDeliveredNotification:notification];
-    });
 }
 
 @end

@@ -50,10 +50,9 @@
 }
 
 - (IBAction)about:(id)sender
-{
-	NSLog(@"%@",[keychain getItem:@"ProxyApp"]);
+{	
     img = [NSImage imageNamed: @"Picture 1"];
-    options = [NSDictionary dictionaryWithObjectsAndKeys:@"",@"Version",@"Proxy App", @"ApplicationName",img,@"ApplicationIcon",@"Copyright 2013, Joshua Girard", @"Copyright",@"Proxy App", @"ApplicationVersion",nil];
+    options = [NSDictionary dictionaryWithObjectsAndKeys:@"",@"Version",@"Proxy App", @"ApplicationName",img,@"ApplicationIcon",@"Copyright 2012, Joshua Girard", @"Copyright",@"Proxy App", @"ApplicationVersion",nil];
 	
     [[NSApplication sharedApplication] orderFrontStandardAboutPanelWithOptions:options];
 	[[NSApplication sharedApplication] arrangeInFront:nil];
@@ -74,20 +73,15 @@
 		username = [standardUserDefaults objectForKey:@"username"];
 		//password = [standardUserDefaults objectForKey:@"password"];
 		password = [keychain getItem:@"ProxyApp"];
-		if(password==NULL)password=@"";
 		port = [standardUserDefaults objectForKey:@"port"];
 		strictHostKey = [standardUserDefaults objectForKey:@"strictHostKey"];
 		autoProxyResume = [standardUserDefaults objectForKey:@"autoProxyResume"];
 		growl = [standardUserDefaults objectForKey:@"growl"];
 		verboseGrowl = [standardUserDefaults objectForKey:@"verboseGrowl"];
-		tunnelWiFi = [standardUserDefaults objectForKey:@"dontTunnelWiFi"];
-		tunnelEthernet = [standardUserDefaults objectForKey:@"dontTunnelEthernet"];
 		if([strictHostKey isEqualToString:@"On"]){tempValSHK=1;}else{tempValSHK=0;}
 		if([autoProxyResume isEqualToString:@"On"]){tempValAPR=1;}else{tempValAPR=0;}
 		if([growl isEqualToString:@"On"]){tempGrowl=1;}else{tempGrowl=0;}
 		if([verboseGrowl isEqualToString:@"On"]){tempVerboseGrowl=1;}else{tempVerboseGrowl=0;}
-		if([tunnelWiFi isEqualToString:@"True"]){tempTunnelWiFi=1;}else{tempTunnelWiFi=0;}
-		if([tunnelEthernet isEqualToString:@"True"]){tempTunnelEthernet=1;}else{tempTunnelEthernet=0;}
 
 		[serverField setStringValue:server];
 		[usernameField setStringValue:username];
@@ -97,8 +91,6 @@
 		[autoProxyResumeToggle setIntValue:tempValAPR];
 		[growlToggle setIntValue:tempGrowl];
 		[verboseGrowlToggle setIntValue:tempVerboseGrowl];
-		[tunnelWiFiToggle setIntValue:tempTunnelWiFi];
-		[tunnelEthernetToggle setIntValue:tempTunnelEthernet];
 		
 		if(tempGrowl==1){[verboseGrowlToggle setEnabled:YES];}else{[verboseGrowlToggle setEnabled:NO];}
 		

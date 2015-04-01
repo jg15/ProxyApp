@@ -13,7 +13,6 @@
 	id spinStarter;
 	IBOutlet id spinner;
 	NSWindow *spinWindow;
-	SpinnerController *spinnerController;
 }
 
 -(id)ToSpin;

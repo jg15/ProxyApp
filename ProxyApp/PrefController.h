@@ -19,14 +19,10 @@
 	IBOutlet id autoProxyResume;
 	IBOutlet id growl;
 	IBOutlet id verboseGrowl;
-	IBOutlet id tunnelWiFi;
-	IBOutlet id tunnelEthernet;
 	NSString *strictHostKeyOn;
 	NSString *autoProxyResumeOn;
 	NSString *growlOn;
 	NSString *verboseGrowlOn;
-	NSString *dontTunnelWiFi;
-	NSString *dontTunnelEthernet;
 	NSUserDefaults *standardUserDefaults;
 	float masterX;
 }

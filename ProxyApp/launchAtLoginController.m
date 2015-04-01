@@ -15,7 +15,7 @@ static NSString *const StartAtLoginKey = @"launchAtLogin";
 @end
 
 @implementation launchAtLoginController
-//@synthesize loginItems;
+@synthesize loginItems;
 
 #pragma mark Change Observing
 

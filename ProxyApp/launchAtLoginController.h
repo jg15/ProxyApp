@@ -8,9 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface launchAtLoginController : NSObject {
-	LSSharedFileListRef *loginItems;
-}
+@interface launchAtLoginController : NSObject {}
 
 @property(assign) BOOL launchAtLogin;
 
